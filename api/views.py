@@ -38,7 +38,7 @@ def addEvent():
 
 class MatchView(APIView):
     def get(self, request, *args, **kwargs):
-        match = Match.objects.order_by('-dateCreated').last()
+        match = Match.objects.order_by('-dateCreated').first()
         serializer = MatchSerializer(match)
         return Response(serializer.data)
     
